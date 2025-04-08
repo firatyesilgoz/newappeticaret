@@ -60,8 +60,15 @@ class PageController extends Controller
     public function urundetay($slug)
     {
 
-        $products = Product::where('slug', $slug)->first();
-        return view('frontend.pages.product', compact('products'));
+        $products = Product::where('slug', $slug)->where('status', '1')->firstOrFail();
+
+        $productss = Product::
+        where('id','!=', $products->id)
+        ->where('category_id',$products->category_id)
+        ->where('status', '1')
+        ->limit(6)
+        ->get();
+        return view('frontend.pages.product', compact('products','productss'));
     }
     public function hakkimizda()
     {

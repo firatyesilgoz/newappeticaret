@@ -3,8 +3,11 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\Product;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Database\Factories\ProductFactory;
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -21,5 +24,7 @@ class DatabaseSeeder extends Seeder
             SiteSettingSeeder::class,
             ProductSeeder::class,
         ]);
+
+        Product::factory(100)->create();
     }
 }

@@ -20,6 +20,10 @@ class Category extends Model
     public function items(){
         return $this->hasMany(Product::class,'category_id','id');
     }
+
+    public function subCategory(){
+        return $this->hasMany(Category::class,'cat_ust','id');
+    }
     public function sluggable(): array
     {
         return [
