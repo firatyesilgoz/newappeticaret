@@ -1,0 +1,18 @@
+# Satır sonlarını normalize et
+* text=auto
+
+# PHP dosyaları LF ile
+*.php text eol=lf
+
+# CSS, JS, JSON ve benzerleri de LF ile
+*.css text eol=lf
+*.js text eol=lf
+*.json text eol=lf
+*.scss text eol=lf
+*.vue text eol=lf
+
+# Dosyaları dil tanımına göre işaretle
+*.php linguist-language=PHP
+*.blade.php linguist-language=HTML
+*.vue linguist-language=Vue
+*.js linguist-language=JavaScript
