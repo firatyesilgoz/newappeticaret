@@ -59,6 +59,7 @@
                         <h3><a href="{{route('urundetay',$product->slug)}}">{{$product->name}}</a></h3>
                         <p class="mb-0">{{$product->short_text}}</p>
                         <p class="text-primary font-weight-bold">{{number_format($product->price,2)}}</p>
+
                     </div>
                     </div>
                 </div>

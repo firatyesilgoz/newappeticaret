@@ -17,8 +17,8 @@ class PageController extends Controller
         $color = $request->color ?? null;
         $startprice = $request->start_price ?? null;
         $endprice = $request->end_price ?? null;
-        $order = $request->short ?? 'id';
-        $short = $request->short ?? 'desc';
+        $order = $request->order ?? 'id';
+        $sort = $request->sort ?? 'desc';
 
         $products = Product::where('status', '1')->select(['id', 'name', 'slug', 'size', 'color', 'price', 'category_id', 'image'])
             ->where(function ($q) use ($size, $color, $startprice, $endprice) {
@@ -47,7 +47,7 @@ class PageController extends Controller
         $sizelist = Product::where('status', '1')->groupBy('size')->pluck('size')->toarray();
         $colors = Product::where('status', '1')->groupBy('color')->pluck('color')->toarray();
 
-        $products = $products->orderBy($order, $short)->paginate(20);
+        $products = $products->orderBy($order, $sort)->paginate(21);
 
 
 
@@ -76,10 +76,7 @@ class PageController extends Controller
 
         return view('frontend.pages.about', compact('about'));
     }
-    public function sepet()
-    {
-        return view('frontend.pages.sepet');
-    }
+
     public function iletisim()
     {
         return view('frontend.pages.contact');
