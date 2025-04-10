@@ -1,12 +1,12 @@
 <?php
-
+include('C:\xampp\htdocs\testing\routes\panel.php');
 use App\Models\SiteSetting;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\Frontend\PageController;
 use App\Http\Controllers\Frontend\PagehomeController;
-Route::group(['middleware' => 'sitesetting'], function () { // Burada 'Middleware' değil 'middleware' olacak!
+Route::group(['middleware' => 'sitesetting'], function () {
 
     Route::get('/', [PagehomeController::class, 'anasayfa'])->name('anasayfa');
 
