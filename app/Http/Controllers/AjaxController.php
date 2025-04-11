@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Contact;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Mail\Mailables\Content;
 use App\Http\Requests\ContentFormRequest;
 
@@ -25,5 +26,10 @@ class AjaxController extends Controller
         $sonkaydedilen =Contact::create($newdata);
 
         return back()->withSuccess('Başarıyla Gönderildi');
+    }
+
+    public function logout(){
+        Auth::logout();
+        return redirect()->route('anasayfa');
     }
 }

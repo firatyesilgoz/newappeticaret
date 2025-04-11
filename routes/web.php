@@ -4,6 +4,7 @@ use App\Models\SiteSetting;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\Frontend\PageController;
 use App\Http\Controllers\Frontend\PagehomeController;
 Route::group(['middleware' => 'sitesetting'], function () {
@@ -30,4 +31,10 @@ Route::group(['middleware' => 'sitesetting'], function () {
 
     Route::post('/sepet/ekle', [CartController::class, 'add'])->name('sepet.add');
     Route::post('/sepet/remove', [CartController::class, 'remove'])->name('sepet.remove');
+
+    Auth::routes();
+
+    Route::get('/cikis', [AjaxController::class, 'logout'])->name('cikis');
 });
+
+
